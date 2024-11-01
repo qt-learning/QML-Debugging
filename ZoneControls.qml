@@ -3,14 +3,30 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 
 Pane {
-
     id: root
 
     property string zoneName
 
+    // temperatature conversion
+    property int celsius: 21
+    property int fahrenheit: (celsius * 1.8) + 32
+
+    readonly property color temperatureColor: {
+        // this color will change with the temperature
+        if (celsius < 10)
+            return Qt.color("lightblue");
+        else if (celsius >= 10 && celsius < 20)
+            return Qt.color("cyan");
+        else if (celsius >= 20 && celsius < 30)
+            return Qt.color("orange");
+        else
+            return Qt.color("red");
+    }
+
     palette {
-        windowText: "white"
-        dark: "white"
+        // use the temperature color for these palette properties rather than "white"
+        windowText: root.temperatureColor
+        dark: root.temperatureColor
     }
 
     background: Rectangle {
@@ -18,16 +34,13 @@ Pane {
         opacity: 0.5
     }
 
-    // temperatature conversion
-    property int celsius: temperatureDial.value
-    property int fahrenheit: (celsius * 1.8) + 32
-
     RowLayout {
         anchors.fill: parent
 
         spacing: 10
 
         ColumnLayout {
+
             spacing: 10
 
             RowLayout {
@@ -37,8 +50,8 @@ Pane {
                 CheckBox {
                     id: zoneEnabledCheckBox
 
-                    checked: true
                     text: qsTr("Enable %1").arg(root.zoneName)
+                    checked: true
                 }
 
                 Switch {
@@ -54,16 +67,30 @@ Pane {
 
                 spacing: 10
 
+                Image {
+                    // cool temperature image
+                    source: Qt.resolvedUrl("assets/cool.svg")
+                    Layout.alignment: Qt.AlignBottom
+                }
+
                 Dial {
                     id: temperatureDial
 
                     from: 0 // ºC
                     to: 40  // ºC
 
-                    value: 21 // default value ºC
+                    value: root.celsius
 
                     stepSize: 1 // whole degrees
                     snapMode: Dial.SnapAlways
+
+                    onMoved: root.celsius = value
+                }
+
+                Image {
+                    // hot temperature image
+                    source: Qt.resolvedUrl("assets/heat.svg")
+                    Layout.alignment: Qt.AlignBottom
                 }
             }
         }
@@ -78,8 +105,7 @@ Pane {
 
                 // the Label can show the temperature in Celsius or Fahrenheit
                 // "\u00B0" // UTF-16 code for degree º symbol
-                text: unitsSwitch.checked ? root.fahrenheit + "ºF" :
-                                            root.celsius + "ºC"
+                text: unitsSwitch.checked ? root.fahrenheit + "ºF" : root.celsius + "ºC"
 
                 font {
                     weight: Font.ExtraLight
@@ -94,7 +120,14 @@ Pane {
             }
 
             RowLayout {
+
                 spacing: 10
+
+                Image {
+                    // low fan speed image
+                    source: fanSpeedSlider.value > 0 ? Qt.resolvedUrl("assets/fan_outline.svg") : Qt.resolvedUrl("assets/fan_off.svg")
+                    scale: 0.75 // slightly smaller
+                }
 
                 Slider {
                     id: fanSpeedSlider
@@ -104,6 +137,12 @@ Pane {
                     to: 100 // fan max speed
 
                     Layout.fillWidth: true
+                }
+
+                Image {
+                    // high fan speed image
+                    source: Qt.resolvedUrl("assets/fan_fill.svg")
+                    scale: 1.25 // slightly bigger
                 }
             }
         }

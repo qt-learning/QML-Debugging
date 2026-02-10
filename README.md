@@ -21,3 +21,23 @@ If you need additional help, the following resources may be helpful:
 - Qt Documentation: https://doc.qt.io
 - Qt Forum: https://forum.qt.io
 - Qt Academy: https://qt.io/academy
+
+## Licensing Information
+
+```
+Copyright (C) 2026 Qt Group.
+SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
+```
+
+This course demonstrates the debugging tools available in Qt Creator and explains how to diagnose, troubleshoot, and resolve issues in QML applications.
+
+### Terms and Conditions
+
+If you, your employer, or the legal entity you act on behalf of hold commercial license(s) with a Qt Group entity, this software package constitutes Pre-Release Code under the Qt License/Frame Agreement governing those licenses, and that agreement's terms and conditions govern your access and use of this software package.
+
+This software package may provide links or access to third party libraries or code (collectively "Third-Party Software") to implement various functions. Use or distribution of Third-Party Software is discretionary and in all respects subject to applicable license terms of applicable third-party right holders.
+
+### Third-Party Attributions
+
+- The background image used in this project is sourced and adapted from [Rafi](https://stock.adobe.com) / stock.adobe.com
+- The SVG icons used in this project are sourced from [Material Symbols Library](http://fonts.google.com/icons). Material Symbols are available under the Apache License Version 2.0.

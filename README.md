@@ -2,6 +2,23 @@
 
 This is the repo for the QML Debugging Course on Qt Academy.
 
+> Get the full learning experience by enrolling in the course on [Qt Academy](https://www.qt.io/academy/course-catalog?q=debugging#qml-debugging-basics-with-qt-creator)
+
+> You can also find the course playlist on the [Qt YouTube channel](https://www.youtube.com/playlist?list=PLizsthdRd0YwrkIV24_TXdmRM2TAmu0fH)
+
+## 🎯 What You'll Learn 
+
+- **How to set up and configure Qt Creator** for debugging QML applications.
+  
+- **Best practices for** managing breakpoints, logging, inspecting object properties, and debugging bindings.
+
+- **Techniques for identifying and fixing JavaScript and QML**  runtime errors.
+
+
+⭐ **Skill Level:** Beginner
+
+⏱️ **Time to Complete:** 40 minutes 
+
 ## Getting Started
 
 - In this repo, you will find an example project that will be used throughout the course to demonstrate debugging techniques in QML.
